@@ -18,8 +18,8 @@ public class TentativaTest extends TestCase {
 	public void testAdicionarNovoPinoValido() throws PosicaoInvalidaException,
 			CorInvalidaException {
 
-		int posicao = 1;
-		String cor = "rosa";
+		int posicao = 0;
+		String cor = "laranja";
 
 		Tentativa tentativa = new Tentativa();
 
@@ -36,7 +36,24 @@ public class TentativaTest extends TestCase {
 	 * assim ?
 	 */
 
-	public void testAdicionarNovoPinoInvalido() {
+	public void testAdicionarNovoPinoCorInvalida() throws PosicaoInvalidaException {
+
+		int posicao = 0;
+		String cor = "marrom";
+
+		Tentativa tentativa = new Tentativa();
+
+		try {
+			tentativa.adicionarPino(posicao, cor);
+			fail("Cor inválida");
+		} catch (CorInvalidaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	public void testAdicionarNovoPinoPosicaoInvalida() throws CorInvalidaException {
 
 		int posicao = -1;
 		String cor = "marrom";
@@ -45,11 +62,70 @@ public class TentativaTest extends TestCase {
 
 		try {
 			tentativa.adicionarPino(posicao, cor);
-			fail("Posição ou cor inválida");
-		} catch (PosicaoInvalidaException | CorInvalidaException e) {
+			fail("Posição Inválida");
+		} catch (PosicaoInvalidaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+	}
+
+	public void testGetPinoValido() throws PosicaoInvalidaException {
+
+		int posicao = 0;
+		Tentativa tentativa = new Tentativa();
+		tentativa.getPino(posicao);
+
+	}
+
+	public void testGetPinoInvalido() {
+
+		int posicao = -1;
+		Tentativa tentativa = new Tentativa();
+		try {
+			tentativa.getPino(posicao);
+			fail("Posicao Inválida");
+		} catch (PosicaoInvalidaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public void testEhTentativaIncompleta() {
+		Tentativa tentativa = new Tentativa();
+		assertTrue(tentativa.ehTentativaIncompleta());
+	}
+
+	public void testEhTentativaCompleta() throws PosicaoInvalidaException,
+			CorInvalidaException {
+
+		String cor = "rosa";
+
+		Tentativa tentativa = new Tentativa();
+
+		for (int i = 0; i < 4; i++) {
+			tentativa.adicionarPino(i, cor);
+		}
+
+		assertTrue(!(tentativa.ehTentativaIncompleta()));
+
+	}
+
+	public void testQuantosPinos() throws PosicaoInvalidaException,
+			CorInvalidaException {
+
+		String cor = "laranja";
+
+		Tentativa tentativa = new Tentativa();
+		
+		assertEquals(0, tentativa.quantosPinosJaForamAdicionados());
+		
+		for (int i = 0; i < 4; i++) {
+			tentativa.adicionarPino(i, cor);
+		}
+
+		assertEquals(4, tentativa.quantosPinosJaForamAdicionados());
 
 	}
 
