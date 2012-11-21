@@ -1,14 +1,15 @@
 package jogo;
 
 /**
- * Classe que representa uma exceção que deve ser lançada quando alguma classe
- * tenta acessar alguma posição que é maior que a capacidade do arranjo ou menor que 0
- * Por exemplo: Se uma classe desejasse acessar a posição 4 de um arranjo de 4 posições,
- * seria lançada uma PosicaoInvalidaException, pois um arranjo de tamanho = 4 deveria
- * somente poder ser acessado através dos índices 0, 1, 2 ou 3 (Lembrem-se que o índice
- * inicial de um arranjo é 0). 
+ * Classe que representa uma exceï¿½ï¿½o que deve ser lanï¿½ada quando alguma classe
+ * tenta acessar alguma posiï¿½ï¿½o que ï¿½ maior que a capacidade do arranjo ou menor que 0
+ * Por exemplo: Se uma classe desejasse acessar a posiï¿½ï¿½o 4 de um arranjo de 4 posiï¿½ï¿½es,
+ * seria lanï¿½ada uma PosicaoInvalidaException, pois um arranjo de tamanho = 4 deveria
+ * somente poder ser acessado atravï¿½s dos ï¿½ndices 0, 1, 2 ou 3 (Lembrem-se que o ï¿½ndice
+ * inicial de um arranjo ï¿½ 0). 
  *
  */
+@SuppressWarnings("serial")
 public class PosicaoInvalidaException extends Exception
 {
 	public PosicaoInvalidaException()
