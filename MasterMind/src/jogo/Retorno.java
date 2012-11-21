@@ -2,84 +2,73 @@ package jogo;
 
 /**
  * 
- * Representa o "Retorno" que o "FornecedorDaSenha" gera assim 
- * que compara a verdadeira senha e a tentativa do "Adivinho"		
+ * Representa o "Retorno" que o "FornecedorDaSenha" gera assim que compara a
+ * verdadeira senha e a tentativa do "Adivinho"
  */
-public class Retorno 
-{
+public class Retorno {
 	/**
-	 * Quantidade de pinos já inseridos
+	 * Quantidade de pinos jï¿½ inseridos
 	 */
 	private int pinosInseridos;
-	
+
 	/**
-	 * Representação do retorno para o Adivinho indicando se ele 
-	 * acertou a posição -ou- posição e cor de um pino na tentativa
+	 * Representaï¿½ï¿½o do retorno para o Adivinho indicando se ele acertou a
+	 * posiï¿½ï¿½o -ou- posiï¿½ï¿½o e cor de um pino na tentativa
 	 * 
-	 * As strings do arranjo são as cores dos pinos(preto - acertou
-	 * posição e cor do pino, ou branco - acertou apenas cor)
+	 * As strings do arranjo sï¿½o as cores dos pinos(preto - acertou posiï¿½ï¿½o e
+	 * cor do pino, ou branco - acertou apenas cor)
 	 */
 	private String retorno[];
-	
-	public Retorno()
-	{
-		
-		//setando "retorno" arranjo de 4 strings
-		 
-		retorno = new String [4];
-		for(int i = 0; i < 4; i++)
-		{
+
+	public Retorno() {
+
+		// setando "retorno" arranjo de 4 strings
+
+		retorno = new String[4];
+		for (int i = 0; i < 4; i++) {
 			retorno[i] = "nenhum";
 		}
-		
-		
-		//setando "pinosInseridos"
+
+		// setando "pinosInseridos"
 		pinosInseridos = 0;
 	}
-	
+
 	/**
-	 * se já houver 4 pinos, o novo pino não será adicionado
-	 * @param corPino "preto" ou "branco" senão exception é lançada
+	 * se jï¿½ houver 4 pinos, o novo pino nï¿½o serï¿½ adicionado
+	 * 
+	 * @param corPino
+	 *            "preto" ou "branco" senï¿½o exception ï¿½ lanï¿½ada
 	 * @throws CorInvalidaException
 	 */
-	public void adicionarPino(String corPino) throws CorInvalidaException
-	{
-		if(corPino != "branco" && corPino != "preto")
-		{
+	public void adicionarPino(String corPino) throws CorInvalidaException {
+		if (corPino != "branco" && corPino != "preto") {
 			throw new CorInvalidaException();
-		}
-		else if(pinosInseridos != 4)
-		{
+		} else if (pinosInseridos != 4) {
 			retorno[pinosInseridos] = corPino;
 			pinosInseridos++;
 		}
 	}
-	
+
 	/**
 	 * 
-	 * @param posicao de 0 a 3 (válida) senão exception é lançada
-	 * @return cor do pino que está naquela posição
+	 * @param posicao
+	 *            de 0 a 3 (vï¿½lida) senï¿½o exception ï¿½ lanï¿½ada
+	 * @return cor do pino que estï¿½ naquela posiï¿½ï¿½o
 	 * @throws PosicaoInvalidaException
 	 */
-	public String getPino(int posicao) throws PosicaoInvalidaException
-	{
-		if(posicao >= 0 && posicao <= 3)
-		{
+	public String getPino(int posicao) throws PosicaoInvalidaException {
+		if (posicao >= 0 && posicao <= 3) {
 			return retorno[posicao];
-		}
-		else
-		{
+		} else {
 			throw new PosicaoInvalidaException();
 		}
 	}
-	
-	
+
 	/**
 	 * 
 	 * @return quantidade de pinos inseridos
 	 */
-	public int getPinosInseridos()
-	{
+	public int getPinosInseridos() {
 		return pinosInseridos;
 	}
 
