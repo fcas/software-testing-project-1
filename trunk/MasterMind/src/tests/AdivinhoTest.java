@@ -15,7 +15,7 @@ public class AdivinhoTest extends TestCase {
 		super.tearDown();
 	}
 	
-	public void testAdicionarNovoPinoATentativa () throws PosicaoInvalidaException, CorInvalidaException{
+	public void testAdicionarNovoPinoValido () throws PosicaoInvalidaException, CorInvalidaException{
 		
 		int posicao = 1; 
 		String cor = "rosa"; 
@@ -23,6 +23,30 @@ public class AdivinhoTest extends TestCase {
 		Tentativa tentativa = new Tentativa();
 		
 		tentativa.adicionarPino(posicao, cor);
+		
+	}
+	
+	/* O correto é testar uma característica em cada teste, no entando, no each choice
+	* há em uma única cláusula valores pertecentes a blocos diferentes (o que reduz o número
+	* de testes necessários) abaixo por exemplo, os dois valores escolhidos levantam exceções
+	* diferentes, ou seja, duas características estão sendo testadas em um único teste, 
+	* posso manté-lo assim ? 
+	*/
+	
+	public void testAdicionarNovoPinoInvalido() { 
+		
+		int posicao = -1; 
+		String cor = "marrom"; 
+		
+		Tentativa tentativa = new Tentativa();
+		
+		try {
+			tentativa.adicionarPino(posicao, cor);
+			fail("Posição ou cor inválida");
+		} catch (PosicaoInvalidaException | CorInvalidaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
