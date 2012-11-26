@@ -102,7 +102,7 @@ public class Adivinho implements Jogador {
 							+ "Tente novamente.");
 		}
 	}
-	
+	//
 	
 
 }
