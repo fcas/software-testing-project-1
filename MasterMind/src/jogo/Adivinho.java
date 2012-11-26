@@ -80,6 +80,9 @@ public class Adivinho implements Jogador {
 	 *            eh a tentativa(conjunto de pinos) atual do jogador. Eh a
 	 *            tentativa na qual adicionaremos um novo pino apos o metodo.
 	 */
+	/*
+	 * Warning dos testadores: O scanner scanIn não é fechado pelos desenvolvedores do software.
+	 */
 	public void adicionarNovoPinoATentativa(Tentativa tentativa) {
 		System.out.println("digite um novo pino para sua tentativa. ");
 		System.out
