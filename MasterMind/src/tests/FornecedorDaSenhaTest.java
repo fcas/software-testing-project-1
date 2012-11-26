@@ -57,7 +57,7 @@ public class FornecedorDaSenhaTest extends TestCase {
 		try {
 			fornecedorDaSenha.jogar();
 			fail("Jogada nao setada");
-		} catch (Exception e) {
+		} catch (NullPointerException e) {
 
 		}
 
