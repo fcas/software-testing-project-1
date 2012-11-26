@@ -28,12 +28,13 @@ public class TentativaTest extends TestCase {
 	}
 
 	/*
-	 * O correto é testar uma característica em cada teste, no entando, no each
-	 * choice há em uma única cláusula valores pertecentes a blocos diferentes
-	 * (o que reduz o número de testes necessários) abaixo por exemplo, os dois
-	 * valores escolhidos levantam exceções diferentes, ou seja, duas
-	 * características estão sendo testadas em um único teste, posso manté-lo
+	 * O correto eh testar uma caracteristica em cada teste, no entanto, no each
+	 * choice ha em uma unica clausula valores pertecentes a blocos diferentes
+	 * (o que reduz o numero de testes necessarios) abaixo por exemplo, os dois
+	 * valores escolhidos levantam excecoes diferentes, ou seja, duas
+	 * caracteristicas estao sendo testadas em um unico teste, posso mante-lo
 	 * assim ?
+	 * Ab�s, FelBeast
 	 */
 
 	public void testAdicionarNovoPinoCorInvalida() throws PosicaoInvalidaException {
