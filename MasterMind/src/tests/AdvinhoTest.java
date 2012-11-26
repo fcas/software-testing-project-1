@@ -30,7 +30,12 @@ public class AdvinhoTest extends TestCase {
 		t.adicionarPino(2, "azul");
 		t.adicionarPino(3, "roxo");
 		
-		ad.realizarTentativa(t);
+		try{
+			ad.realizarTentativa(t);
+			fail("Atributo jogadaTurno nao inicializado.");
+		}	
+		catch (NullPointerException e){
+		}
 	}
 	
 	/*
