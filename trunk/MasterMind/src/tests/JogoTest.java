@@ -1,5 +1,6 @@
 package tests;
 
+import jogo.Jogo;
 import junit.framework.TestCase;
 
 public class JogoTest extends TestCase {
@@ -12,4 +13,8 @@ public class JogoTest extends TestCase {
 		super.tearDown();
 	}
 
+	public void testJogo(){
+		Jogo jogo = new Jogo();
+		assertEquals(true, true);
+	}
 }
