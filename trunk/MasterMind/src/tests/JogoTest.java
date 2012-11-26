@@ -12,9 +12,4 @@ public class JogoTest extends TestCase {
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
-
-	public void testJogo(){
-		Jogo jogo = new Jogo();
-		assertEquals(true, true);
-	}
 }
