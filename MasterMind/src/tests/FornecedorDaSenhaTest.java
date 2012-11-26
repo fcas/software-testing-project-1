@@ -3,7 +3,9 @@ package tests;
 import jogo.CorInvalidaException;
 import jogo.FornecedorDaSenha;
 import jogo.Jogada;
+import jogo.PosicaoInvalidaException;
 import jogo.Senha;
+import jogo.Tentativa;
 import junit.framework.TestCase;
 
 public class FornecedorDaSenhaTest extends TestCase {
@@ -47,11 +49,36 @@ public class FornecedorDaSenhaTest extends TestCase {
 
 	}
 
-	public void testJogar() {
+	/* Nao foi criada escecao para quando a jogado nao for setada */
+	public void testJogarNullPointer() {
 
 		FornecedorDaSenha fornecedorDaSenha = new FornecedorDaSenha();
-		fornecedorDaSenha.jogar();
 
+		try {
+			fornecedorDaSenha.jogar();
+			fail("Jogada nao setada");
+		} catch (Exception e) {
+
+		}
+
+	}
+	
+	public void testJogar() throws PosicaoInvalidaException, CorInvalidaException{ 
+		
+		FornecedorDaSenha fornecedorDaSenha = new FornecedorDaSenha();
+		Jogada jogada = new Jogada();
+		Tentativa tentativa = new Tentativa();
+		
+		tentativa.adicionarPino(0, "rosa"); 
+		tentativa.adicionarPino(1, "azul");
+		tentativa.adicionarPino(2, "laranja");
+		tentativa.adicionarPino(3, "vermelho");
+		
+		jogada.setTentativa(tentativa);
+		fornecedorDaSenha.setJogada(jogada);
+		
+		fornecedorDaSenha.jogar();
+		
 	}
 
 }
