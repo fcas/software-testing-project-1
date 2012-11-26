@@ -46,7 +46,7 @@ public class TentativaTest extends TestCase {
 
 		try {
 			tentativa.adicionarPino(posicao, cor);
-			fail("Cor inválida");
+			fail("Cor invalida");
 		} catch (CorInvalidaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -56,14 +56,23 @@ public class TentativaTest extends TestCase {
 	
 	public void testAdicionarNovoPinoPosicaoInvalida() throws CorInvalidaException {
 
-		int posicao = -1;
+		int posicao1 = -1;
+		int posicao2 = 6;
 		String cor = "marrom";
 
 		Tentativa tentativa = new Tentativa();
 
 		try {
-			tentativa.adicionarPino(posicao, cor);
-			fail("Posição Inválida");
+			tentativa.adicionarPino(posicao1, cor);
+			fail("Posicao Invalida");
+		} catch (PosicaoInvalidaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			tentativa.adicionarPino(posicao2, cor);
+			fail("Posicao Invalida");
 		} catch (PosicaoInvalidaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -81,13 +90,22 @@ public class TentativaTest extends TestCase {
 
 	public void testGetPinoInvalido() {
 
-		int posicao = -1;
+		int posicao1 = -5;
+		int posicao2 = 14;
+		
 		Tentativa tentativa = new Tentativa();
+		
 		try {
-			tentativa.getPino(posicao);
-			fail("Posicao Inválida");
+			tentativa.getPino(posicao1);
+			fail("Posicao Invalida");
 		} catch (PosicaoInvalidaException e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			tentativa.getPino(posicao2);
+			fail("Posicao Invalida");
+		} catch (PosicaoInvalidaException e) {
 			e.printStackTrace();
 		}
 
@@ -109,7 +127,7 @@ public class TentativaTest extends TestCase {
 			tentativa.adicionarPino(i, cor);
 		}
 
-		assertTrue(!(tentativa.ehTentativaIncompleta()));
+		assertEquals(false, tentativa.ehTentativaIncompleta());
 
 	}
 
@@ -128,6 +146,24 @@ public class TentativaTest extends TestCase {
 
 		assertEquals(4, tentativa.quantosPinosJaForamAdicionados());
 
+	}
+	
+	public void testCorEhValida(){
+		String cor1 = "vermelho";
+		String cor2 = "azul";
+		String cor3 = "amarelo";
+		String cor4 = "roxo";
+		String cor5 = "verde";
+		String cor6 = "cinza";
+		
+		Tentativa t = new Tentativa();
+		
+		assertEquals(true, t.CorEhValida(cor1));
+		assertEquals(true, t.CorEhValida(cor2));
+		assertEquals(true, t.CorEhValida(cor3));
+		assertEquals(true, t.CorEhValida(cor4));
+		assertEquals(true, t.CorEhValida(cor5));
+		assertEquals(true, t.CorEhValida(cor6));
 	}
 
 }
