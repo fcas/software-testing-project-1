@@ -1,6 +1,5 @@
 package tests;
 
-import jogo.Jogo;
 import junit.framework.TestCase;
 
 public class JogoTest extends TestCase {
