@@ -8,14 +8,14 @@ package jogo;
 public class Tentativa 
 {
 	/**
-	 * "tentativa" é um Arranjo de 4 posições que engloba Strings. Cada String deveria conter
-	 * uma cor válida utilizada pelo sistema que representa cada pino que o Adivinho
+	 * "tentativa" ï¿½ um Arranjo de 4 posiï¿½ï¿½es que engloba Strings. Cada String deveria conter
+	 * uma cor vï¿½lida utilizada pelo sistema que representa cada pino que o Adivinho
 	 * mandou inserir na Tentativa.
 	 */
 	private String tentativa[];
 	
 	/**
-	 * Inicialmente todos os pinos da tentativa serão inicializados com a String "nenhum" que
+	 * Inicialmente todos os pinos da tentativa serï¿½o inicializados com a String "nenhum" que
 	 * significa "nenhuma cor ainda foi escolhida pelo Adivinho".
 	 */
 	public Tentativa()
@@ -28,12 +28,12 @@ public class Tentativa
 	}
 	
 	/**
-	 * -> Função que representa a adição novo pino à tentativa. Para isso, é necessário 
-	 * ser informada a posição que o novo pino irá ocupar na Tentativa e a cor do novo pino.
-	 * -> Caso a posição seja menor que 0 ou maior que 3, uma exceção "PosicaoInvalidaException" 
-	 * é lançada, pois uma tentativa só deveria conter 4 pinos no máximo.
-	 * -> Caso a cor do novo pino não seja uma cor válida, uma exceção "CorInvalidaException" 
-	 * é lançada
+	 * -> Funï¿½ï¿½o que representa a adiï¿½ï¿½o novo pino ï¿½ tentativa. Para isso, ï¿½ necessï¿½rio 
+	 * ser informada a posiï¿½ï¿½o que o novo pino irï¿½ ocupar na Tentativa e a cor do novo pino.
+	 * -> Caso a posiï¿½ï¿½o seja menor que 0 ou maior que 3, uma exceï¿½ï¿½o "PosicaoInvalidaException" 
+	 * ï¿½ lanï¿½ada, pois uma tentativa sï¿½ deveria conter 4 pinos no mï¿½ximo.
+	 * -> Caso a cor do novo pino nï¿½o seja uma cor vï¿½lida, uma exceï¿½ï¿½o "CorInvalidaException" 
+	 * ï¿½ lanï¿½ada
 	 * @param posicao
 	 * @param cor
 	 * @throws PosicaoInvalidaException
@@ -56,10 +56,10 @@ public class Tentativa
 	}
 	
 	/**
-	 * Função que retorna a cor do pino da posição informada no arranjo "tentativa".
-	 * Caso a posição seja menor que 0 ou maior que 3, uma exceção "PosicaoInvalidaException"
-	 * é lançada.
-	 * A função irá retornar "nenhum" se nenhum pino foi adicionado à aquela posição.
+	 * Funï¿½ï¿½o que retorna a cor do pino da posiï¿½ï¿½o informada no arranjo "tentativa".
+	 * Caso a posiï¿½ï¿½o seja menor que 0 ou maior que 3, uma exceï¿½ï¿½o "PosicaoInvalidaException"
+	 * ï¿½ lanï¿½ada.
+	 * A funï¿½ï¿½o irï¿½ retornar "nenhum" se nenhum pino foi adicionado ï¿½ aquela posiï¿½ï¿½o.
 	 * @param posicao
 	 * @return
 	 * @throws PosicaoInvalidaException
@@ -78,13 +78,13 @@ public class Tentativa
 	
 	
 	/**
-	 * Caso a Tentativa ainda não possua quatro pinos, 
-	 * essa função retorna true, senão retorna false.
+	 * Caso a Tentativa ainda nï¿½o possua quatro pinos, 
+	 * essa funï¿½ï¿½o retorna true, senï¿½o retorna false.
 	 * @return
 	 */
 	public boolean ehTentativaIncompleta()
 	{
-		//uma tentativa incompleta é aquela que tem como pino "nenhum".
+		//uma tentativa incompleta ï¿½ aquela que tem como pino "nenhum".
 		for(int i = 0; i < 4; i++)
 		{
 			if(this.tentativa[i] == "nenhum")
@@ -97,9 +97,9 @@ public class Tentativa
 	}
 	
 	/**
-	 * Função que verifica se uma cor "c1" (passada como parâmetro) é uma das cores 
+	 * Funï¿½ï¿½o que verifica se uma cor "c1" (passada como parï¿½metro) ï¿½ uma das cores 
 	 * utilizadas pelo sistema. Se c1 for "vermelho", "azul", "rosa", "amarelo", "roxo",
-	 * "verde", "cinza" ou "laranja", então c1 é uma cor válida. Senão, é uma cor inválida.
+	 * "verde", "cinza" ou "laranja", entï¿½o c1 ï¿½ uma cor vï¿½lida. Senï¿½o, ï¿½ uma cor invï¿½lida.
 	 * @param c1
 	 * @return
 	 */
@@ -123,8 +123,8 @@ public class Tentativa
 	}
 	
 	/**
-	 * Função que retorna a quantidade de pinos já inseridos na Tentativa. 
-	 * Esse número é útil quando o Adivinho for adicionar novos pinos na tentativa
+	 * Funï¿½ï¿½o que retorna a quantidade de pinos jï¿½ inseridos na Tentativa. 
+	 * Esse nï¿½mero ï¿½ ï¿½til quando o Adivinho for adicionar novos pinos na tentativa
 	 * para que ele saiba onde adicionar os pinos que faltam para completar essa Tentativa 
 	 * (uma tenativa deve ter 4 pinos).
 	 * @return
@@ -147,5 +147,4 @@ public class Tentativa
 		return pinosAdicionados;
 	}
 	
-
 }
