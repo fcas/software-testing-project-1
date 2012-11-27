@@ -54,13 +54,30 @@ public class Adivinho implements Jogador {
 	 * completa. Apos o jogador selecionar os 4 pinos da tentativa, ele vai
 	 * realizar a tentativa de acertar a senha.
 	 */
+	/*
+	 * Método não-testável pois depende de outro método não-testável.
+	 */
+	
 	public void jogar() {
-		Tentativa tentativaJogador = new Tentativa();
+		/* o método está comentado para realização de testes de unidade.
+		 * Tentativa tentativaJogador = new Tentativa();
 		while (tentativaJogador.ehTentativaIncompleta() == true) {
 			this.adicionarNovoPinoATentativa(tentativaJogador);
 		}
+		this.realizarTentativa(tentativaJogador);*/
+	}
+	
+	public void jogarTestadores() throws PosicaoInvalidaException, CorInvalidaException {
+		Tentativa tentativaJogador = new Tentativa();
+		tentativaJogador.adicionarPino(0, "laranja");
+		tentativaJogador.adicionarPino(1, "verde");
+		tentativaJogador.adicionarPino(2, "azul");
+		tentativaJogador.adicionarPino(3, "roxo");
+		
+		while (tentativaJogador.ehTentativaIncompleta() == true) {
+			this.scannerTestadores(tentativaJogador);
+		}
 		this.realizarTentativa(tentativaJogador);
-
 	}
 
 	/**
@@ -80,10 +97,13 @@ public class Adivinho implements Jogador {
 	 *            eh a tentativa(conjunto de pinos) atual do jogador. Eh a
 	 *            tentativa na qual adicionaremos um novo pino apos o metodo.
 	 */
+	
 	/*
 	 * Warning dos testadores: O scanner scanIn não é fechado pelos desenvolvedores do software.
 	 */
-	public void adicionarNovoPinoATentativa(Tentativa tentativa) {
+	
+	/* o método está comentado para realização de testes de unidade.
+	 * public void adicionarNovoPinoATentativa(Tentativa tentativa) {
 		System.out.println("digite um novo pino para sua tentativa. ");
 		System.out
 				.println("Ele pode ser vermelho, azul, rosa, amarelo, roxo, verde, cinza ou laranja.");
@@ -101,6 +121,35 @@ public class Adivinho implements Jogador {
 					.println("cor invalida para novo pino a ser inserido na tentativa do jogador."
 							+ "Tente novamente.");
 		}
+	}*/
+	
+	public void adicionarNovoPinoATentativaTestadores(Tentativa tentativa, String corPino) {
+
+		int posicaoDoNovoPino = tentativa.quantosPinosJaForamAdicionados();
+		try {
+			tentativa.adicionarPino(posicaoDoNovoPino, corPino);
+			System.out.println("pino colocado com sucesso:" + corPino);
+		} catch (PosicaoInvalidaException e) {
+			System.out
+					.println("posicao para inserir pino na jogada do jogador eh invalida");
+		} catch (CorInvalidaException e) {
+			System.out
+					.println("cor invalida para novo pino a ser inserido na tentativa do jogador."
+							+ "Tente novamente.");
+		}
+	}
+	
+	public void scannerTestadores(Tentativa tentativa){
+		
+		Scanner scanIn = new Scanner(System.in);
+		
+		System.out.println("digite um novo pino para sua tentativa. ");
+		System.out.println("Ele pode ser vermelho, azul, rosa, amarelo, roxo, verde, cinza ou laranja.");
+		
+		String corPino = scanIn.nextLine();
+		
+		this.adicionarNovoPinoATentativaTestadores(tentativa, corPino);
+		scanIn.close();
 	}
 	//
 	

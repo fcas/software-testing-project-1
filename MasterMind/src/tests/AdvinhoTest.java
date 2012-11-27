@@ -60,8 +60,53 @@ public class AdvinhoTest extends TestCase {
 	 * Método não-testável pois dentro do método é utilizado Scanner.in;
 	 * Aconselhado extrair o Scanner do método para que ele possa ser adicionado aos testes automatizados do JUnit.
 	 */
-	public void testAdicionarNovoPinoATentativa(){
+	public void testAdicionarNovoPinoATentativaCheia() throws PosicaoInvalidaException, CorInvalidaException{
+		Tentativa t = new Tentativa();
+		Adivinho ad = new Adivinho();
 		
+		t.adicionarPino(0, "laranja");
+		t.adicionarPino(1, "verde");
+		t.adicionarPino(2, "azul");
+		t.adicionarPino(3, "roxo");
+		
+		String cor = "roxo";
+		
+		ad.adicionarNovoPinoATentativaTestadores(t, cor);
+	}
+	
+	public void testAdicionarNovoPinoATentativaValida() throws PosicaoInvalidaException, CorInvalidaException{
+		Tentativa t = new Tentativa();
+		Adivinho ad = new Adivinho();
+		
+		t.adicionarPino(0, "laranja");
+		t.adicionarPino(1, "verde");
+		t.adicionarPino(2, "azul");
+		
+		String cor = "roxo";
+		
+		ad.adicionarNovoPinoATentativaTestadores(t, cor);
+	}
+	
+	public void testAdicionarNovoPinoATentativaCorInvalida() throws PosicaoInvalidaException, CorInvalidaException{
+		Tentativa t = new Tentativa();
+		Adivinho ad = new Adivinho();
+		
+		t.adicionarPino(0, "laranja");
+		t.adicionarPino(1, "verde");
+		t.adicionarPino(2, "azul");
+		
+		String cor = "marrom";
+		
+		ad.adicionarNovoPinoATentativaTestadores(t, cor);
+	}
+	
+	public void testJogarTestadores() throws PosicaoInvalidaException, CorInvalidaException{
+		Adivinho ad = new Adivinho();
+		
+		Jogada jog = new Jogada();
+		ad.setJogada(jog);
+		
+		ad.jogarTestadores();
 	}
 
 }
