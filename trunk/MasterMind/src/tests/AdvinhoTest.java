@@ -16,96 +16,120 @@ public class AdvinhoTest extends TestCase {
 	protected void tearDown() throws Exception {
 		super.tearDown();
 	}
-	
-	/* 
-	 * NullPointerException é lançada pois a classe Adivinho
-	 * não foi inicializada corretamente pelos criadores do software
+
+	/*
+	 * NullPointerException ï¿½ lanï¿½ada pois a classe Adivinho nï¿½o foi
+	 * inicializada corretamente pelos criadores do software
 	 */
-	public void testRealizarTentativaNullPointerException () throws PosicaoInvalidaException, CorInvalidaException {
+
+	public void testRealizarTentativaNullPointerException()
+			throws PosicaoInvalidaException, CorInvalidaException {
 		Tentativa t = new Tentativa();
 		Adivinho ad = new Adivinho();
-		
+
 		t.adicionarPino(0, "laranja");
 		t.adicionarPino(1, "verde");
 		t.adicionarPino(2, "azul");
 		t.adicionarPino(3, "roxo");
-		
-		try{
+
+		try {
 			ad.realizarTentativa(t);
 			fail("Atributo jogadaTurno nao inicializado.");
-		}	
-		catch (NullPointerException e){
+		} catch (NullPointerException e) {
 		}
 	}
-	
+
 	/*
-	 * Para corrigir o NullPointerException, o método setJogada é chamado antes do realizarTentativa.
+	 * Para corrigir o NullPointerException, o mï¿½todo setJogada ï¿½ chamado antes
+	 * do realizarTentativa.
 	 */
-	public void testRealizarTentativa () throws PosicaoInvalidaException, CorInvalidaException {
+	public void testRealizarTentativaCompleta()
+			throws PosicaoInvalidaException, CorInvalidaException {
 		Tentativa t = new Tentativa();
 		Adivinho ad = new Adivinho();
-		
+
 		t.adicionarPino(0, "laranja");
 		t.adicionarPino(1, "verde");
 		t.adicionarPino(2, "azul");
 		t.adicionarPino(3, "roxo");
-		
+
 		Jogada jog = new Jogada();
 		ad.setJogada(jog);
-		
+
 		ad.realizarTentativa(t);
+		assertEquals(false, t.ehTentativaIncompleta());
+
 	}
-	
-	/*
-	 * Método não-testável pois dentro do método é utilizado Scanner.in;
-	 * Aconselhado extrair o Scanner do método para que ele possa ser adicionado aos testes automatizados do JUnit.
-	 */
-	public void testAdicionarNovoPinoATentativaCheia() throws PosicaoInvalidaException, CorInvalidaException{
+
+	public void testRealizarTentativaIncompleta()
+			throws PosicaoInvalidaException, CorInvalidaException {
 		Tentativa t = new Tentativa();
 		Adivinho ad = new Adivinho();
-		
+
+		Jogada jog = new Jogada();
+		ad.setJogada(jog);
+
+		ad.realizarTentativa(t);
+		assertEquals(true, t.ehTentativaIncompleta());
+
+	}
+
+	/*
+	 * Mï¿½todo nï¿½o-testï¿½vel pois dentro do mï¿½todo ï¿½ utilizado Scanner.in;
+	 * Aconselhado extrair o Scanner do mï¿½todo para que ele possa ser adicionado
+	 * aos testes automatizados do JUnit.
+	 */
+	public void testAdicionarNovoPinoATentativaCheia()
+			throws PosicaoInvalidaException, CorInvalidaException {
+		Tentativa t = new Tentativa();
+		Adivinho ad = new Adivinho();
+
 		t.adicionarPino(0, "laranja");
 		t.adicionarPino(1, "verde");
 		t.adicionarPino(2, "azul");
 		t.adicionarPino(3, "roxo");
-		
+
 		String cor = "roxo";
-		
+
 		ad.adicionarNovoPinoATentativaTestadores(t, cor);
 	}
-	
-	public void testAdicionarNovoPinoATentativaValida() throws PosicaoInvalidaException, CorInvalidaException{
+
+	public void testAdicionarNovoPinoATentativaValida()
+			throws PosicaoInvalidaException, CorInvalidaException {
 		Tentativa t = new Tentativa();
 		Adivinho ad = new Adivinho();
-		
+
 		t.adicionarPino(0, "laranja");
 		t.adicionarPino(1, "verde");
 		t.adicionarPino(2, "azul");
-		
+
 		String cor = "roxo";
-		
+
 		ad.adicionarNovoPinoATentativaTestadores(t, cor);
+		
 	}
-	
-	public void testAdicionarNovoPinoATentativaCorInvalida() throws PosicaoInvalidaException, CorInvalidaException{
+
+	public void testAdicionarNovoPinoATentativaCorInvalida()
+			throws PosicaoInvalidaException, CorInvalidaException {
 		Tentativa t = new Tentativa();
 		Adivinho ad = new Adivinho();
-		
+
 		t.adicionarPino(0, "laranja");
 		t.adicionarPino(1, "verde");
 		t.adicionarPino(2, "azul");
-		
+
 		String cor = "marrom";
-		
+
 		ad.adicionarNovoPinoATentativaTestadores(t, cor);
 	}
-	
-	public void testJogarTestadores() throws PosicaoInvalidaException, CorInvalidaException{
+
+	public void testJogarTestadores() throws PosicaoInvalidaException,
+			CorInvalidaException {
 		Adivinho ad = new Adivinho();
-		
+
 		Jogada jog = new Jogada();
 		ad.setJogada(jog);
-		
+
 		ad.jogarTestadores();
 	}
 
