@@ -62,23 +62,24 @@ public class FornecedorDaSenhaTest extends TestCase {
 		}
 
 	}
-	
-	public void testJogar() throws PosicaoInvalidaException, CorInvalidaException{ 
-		
+
+	public void testJogar() throws PosicaoInvalidaException,
+			CorInvalidaException {
+
 		FornecedorDaSenha fornecedorDaSenha = new FornecedorDaSenha();
 		Jogada jogada = new Jogada();
 		Tentativa tentativa = new Tentativa();
-		
-		tentativa.adicionarPino(0, "rosa"); 
+
+		tentativa.adicionarPino(0, "rosa");
 		tentativa.adicionarPino(1, "azul");
 		tentativa.adicionarPino(2, "laranja");
 		tentativa.adicionarPino(3, "vermelho");
-		
+
 		jogada.setTentativa(tentativa);
 		fornecedorDaSenha.setJogada(jogada);
-		
+
 		fornecedorDaSenha.jogar();
-		
+
 	}
 
 }
