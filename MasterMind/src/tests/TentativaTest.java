@@ -34,7 +34,7 @@ public class TentativaTest extends TestCase {
 	 * valores escolhidos levantam excecoes diferentes, ou seja, duas
 	 * caracteristicas estao sendo testadas em um unico teste, posso mante-lo
 	 * assim ?
-	 * Abçs, FelBeast
+	 * Abï¿½s, FelBeast
 	 */
 
 	public void testAdicionarNovoPinoCorInvalida() throws PosicaoInvalidaException {
@@ -80,7 +80,7 @@ public class TentativaTest extends TestCase {
 
 	}
 
-	public void testGetPinoValido() throws PosicaoInvalidaException {
+	public void testGetPinoPosicaoValida() throws PosicaoInvalidaException {
 
 		int posicao = 0;
 		Tentativa tentativa = new Tentativa();
@@ -88,7 +88,7 @@ public class TentativaTest extends TestCase {
 
 	}
 
-	public void testGetPinoInvalido() {
+	public void testGetPinoPosicaoInvalida() {
 
 		int posicao1 = -5;
 		int posicao2 = 14;
@@ -149,6 +149,7 @@ public class TentativaTest extends TestCase {
 	}
 	
 	public void testCorEhValida(){
+		
 		String cor1 = "vermelho";
 		String cor2 = "azul";
 		String cor3 = "amarelo";
@@ -158,12 +159,21 @@ public class TentativaTest extends TestCase {
 		
 		Tentativa t = new Tentativa();
 		
-		assertEquals(true, t.CorEhValida(cor1));
-		assertEquals(true, t.CorEhValida(cor2));
-		assertEquals(true, t.CorEhValida(cor3));
-		assertEquals(true, t.CorEhValida(cor4));
-		assertEquals(true, t.CorEhValida(cor5));
-		assertEquals(true, t.CorEhValida(cor6));
+		assertTrue(t.CorEhValida(cor1));
+		assertTrue(t.CorEhValida(cor2));
+		assertTrue(t.CorEhValida(cor3));
+		assertTrue(t.CorEhValida(cor4));
+		assertTrue(t.CorEhValida(cor5));
+		assertTrue(t.CorEhValida(cor6));
+		
 	}
 
+	public void testCorEhInvalida(){
+		
+		String cor = "marrom";
+		Tentativa t = new Tentativa();
+		assertFalse(t.CorEhValida(cor));
+		
+	}
+	
 }
