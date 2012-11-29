@@ -57,7 +57,8 @@ public class AdvinhoTest extends TestCase {
 		ad.setJogada(jog);
 
 		ad.realizarTentativa(t);
-		assertEquals(false, t.ehTentativaIncompleta());
+		
+		assertFalse(t.ehTentativaIncompleta());
 
 	}
 
@@ -70,7 +71,8 @@ public class AdvinhoTest extends TestCase {
 		ad.setJogada(jog);
 
 		ad.realizarTentativa(t);
-		assertEquals(true, t.ehTentativaIncompleta());
+		
+		assertTrue(t.ehTentativaIncompleta());
 
 	}
 
@@ -92,6 +94,9 @@ public class AdvinhoTest extends TestCase {
 		String cor = "roxo";
 
 		ad.adicionarNovoPinoATentativaTestadores(t, cor);
+		
+		assertEquals(cor, t.getPino(3));
+		
 	}
 
 	public void testAdicionarNovoPinoATentativaValida()
@@ -107,6 +112,8 @@ public class AdvinhoTest extends TestCase {
 
 		ad.adicionarNovoPinoATentativaTestadores(t, cor);
 		
+		assertEquals(cor, t.getPino(3));
+		
 	}
 
 	public void testAdicionarNovoPinoATentativaCorInvalida()
@@ -120,7 +127,7 @@ public class AdvinhoTest extends TestCase {
 
 		String cor = "marrom";
 
-		ad.adicionarNovoPinoATentativaTestadores(t, cor);
+
 	}
 
 	public void testJogarTestadores() throws PosicaoInvalidaException,

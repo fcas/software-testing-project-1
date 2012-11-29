@@ -56,7 +56,7 @@ public class SenhaTest extends TestCase {
 		assertEquals(null, result2);
 	}
 	
-	public void testAdicionaPinoValido() throws CorInvalidaException {
+	public void testAdicionaPinoValido() throws CorInvalidaException, PosicaoInvalidaException {
 		Senha senha = new Senha();
 		String cor1 = "laranja";
 		String cor2 = "azul";
@@ -67,6 +67,11 @@ public class SenhaTest extends TestCase {
 		senha.adicionarPino(cor2);
 		senha.adicionarPino(cor3);
 		senha.adicionarPino(cor4);
+		
+		assertEquals(cor1, senha.getPino(0));
+		assertEquals(cor2, senha.getPino(1));
+		assertEquals(cor3, senha.getPino(2));
+		assertEquals(cor4, senha.getPino(3));
 		
 	}
 	
