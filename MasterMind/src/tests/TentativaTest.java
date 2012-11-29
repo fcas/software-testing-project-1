@@ -24,6 +24,8 @@ public class TentativaTest extends TestCase {
 		Tentativa tentativa = new Tentativa();
 
 		tentativa.adicionarPino(posicao, cor);
+		
+		assertEquals(cor, tentativa.getPino(0));
 
 	}
 
@@ -84,7 +86,8 @@ public class TentativaTest extends TestCase {
 
 		int posicao = 0;
 		Tentativa tentativa = new Tentativa();
-		tentativa.getPino(posicao);
+		
+		assertNotNull(tentativa.getPino(posicao));
 
 	}
 
@@ -127,7 +130,7 @@ public class TentativaTest extends TestCase {
 			tentativa.adicionarPino(i, cor);
 		}
 
-		assertEquals(false, tentativa.ehTentativaIncompleta());
+		assertFalse(tentativa.ehTentativaIncompleta());
 
 	}
 

@@ -15,7 +15,7 @@ public class RetornoTest extends TestCase {
 		super.tearDown();
 	}
 
-	public void testAdicionarPinoCorInvalida() {
+	public void testAdicionarPinoCorInvalida() throws PosicaoInvalidaException {
 
 		String corPino = "azul";
 		Retorno retorno = new Retorno();
@@ -27,15 +27,19 @@ public class RetornoTest extends TestCase {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		assertEquals("nenhum", retorno.getPino(0));
 
 	}
 
-	public void testAdicionarPinoCorValida() throws CorInvalidaException {
+	public void testAdicionarPinoCorValida() throws CorInvalidaException, PosicaoInvalidaException {
 
 		String corPino = "branco";
 		Retorno retorno = new Retorno();
 
 		retorno.adicionarPino(corPino);
+		
+		assertEquals(corPino, retorno.getPino(0));
 
 	}
 
