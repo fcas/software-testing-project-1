@@ -46,10 +46,18 @@ public class FornecedorDaSenhaTest extends TestCase {
 
 		FornecedorDaSenha fornecedorDaSenha = new FornecedorDaSenha();
 		fornecedorDaSenha.criarSenha();
+		
+		/*
+		 * Esse método não tem assert, pois o método "criarSenha" da classe FornecedorDaSenha gera
+		 * uma senha randômica, logo, não é possível conhecer a expectativa para usar no assert;
+		 * e esse método não usa "throws" para nenhuma exceção.
+		 * A única exceção (Exception) do método é tratada internamente com try/catch, logo, não há exceptions
+		 * para o teste capturar.
+		 */
 
 	}
 
-	/* Nao foi criada escecao para quando a jogado nao for setada */
+	/* Nao foi criada excecao para quando a jogado nao for setada */
 	public void testJogarNullPointer() {
 
 		FornecedorDaSenha fornecedorDaSenha = new FornecedorDaSenha();
@@ -57,9 +65,8 @@ public class FornecedorDaSenhaTest extends TestCase {
 		try {
 			fornecedorDaSenha.jogar();
 			fail("Jogada nao setada");
-		} catch (NullPointerException e) {
-
-		}
+		} catch (NullPointerException e)
+		{}
 
 	}
 
