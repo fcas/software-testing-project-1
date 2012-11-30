@@ -3,7 +3,6 @@ package jogo;
 /**
  * Classe que representa uma tentativa realizada pelo Adivinho para tentar adivinhar uma Senha
  * criada pelo FornecedorDeSenha.
- *
  */
 public class Tentativa 
 {
@@ -52,7 +51,7 @@ public class Tentativa
 		else
 		{
 			tentativa[posicao] = cor;
-		}	
+		}
 	}
 	
 	/**
