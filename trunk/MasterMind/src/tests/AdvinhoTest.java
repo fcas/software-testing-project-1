@@ -126,7 +126,10 @@ public class AdvinhoTest extends TestCase {
 		t.adicionarPino(2, "azul");
 
 		String cor = "marrom";
-
+		
+		ad.adicionarNovoPinoATentativaTestadores(t, cor);
+		
+		assertEquals("nenhum", t.getPino(3));
 
 	}
 
