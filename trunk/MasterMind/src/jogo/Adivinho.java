@@ -54,19 +54,19 @@ public class Adivinho implements Jogador {
 	 * completa. Apos o jogador selecionar os 4 pinos da tentativa, ele vai
 	 * realizar a tentativa de acertar a senha.
 	 */
+	
 	/*
 	 * Método não-testável pois depende de outro método não-testável.
 	 */
-	
 	public void jogar() {
-		/* o método está comentado para realização de testes de unidade.
-		 * Tentativa tentativaJogador = new Tentativa();
+		Tentativa tentativaJogador = new Tentativa();
 		while (tentativaJogador.ehTentativaIncompleta() == true) {
 			this.adicionarNovoPinoATentativa(tentativaJogador);
 		}
-		this.realizarTentativa(tentativaJogador);*/
+		this.realizarTentativa(tentativaJogador);
 	}
 	
+	/**Método desenvolvido pelos testadores com a ideia de simular um Stub**/
 	public void jogarTestadores() throws PosicaoInvalidaException, CorInvalidaException {
 		Tentativa tentativaJogador = new Tentativa();
 		tentativaJogador.adicionarPino(0, "laranja");
@@ -100,10 +100,9 @@ public class Adivinho implements Jogador {
 	
 	/*
 	 * Warning dos testadores: O scanner scanIn não é fechado pelos desenvolvedores do software.
+	 * Método não-testável pois depende da entrada do usuário com o teclado.
 	 */
-	
-	/* o método está comentado para realização de testes de unidade.
-	 * public void adicionarNovoPinoATentativa(Tentativa tentativa) {
+	  public void adicionarNovoPinoATentativa(Tentativa tentativa) {
 		System.out.println("digite um novo pino para sua tentativa. ");
 		System.out
 				.println("Ele pode ser vermelho, azul, rosa, amarelo, roxo, verde, cinza ou laranja.");
@@ -121,8 +120,9 @@ public class Adivinho implements Jogador {
 					.println("cor invalida para novo pino a ser inserido na tentativa do jogador."
 							+ "Tente novamente.");
 		}
-	}*/
+	}
 	
+	  /**Método desenvolvido pelos testadores com a ideia de simular um Stub**/
 	public void adicionarNovoPinoATentativaTestadores(Tentativa tentativa, String corPino) {
 
 		int posicaoDoNovoPino = tentativa.quantosPinosJaForamAdicionados();
@@ -139,6 +139,7 @@ public class Adivinho implements Jogador {
 		}
 	}
 	
+	/**Método desenvolvido pelos testadores com a ideia de simular um Stub**/
 	public void scannerTestadores(Tentativa tentativa){
 		
 		Scanner scanIn = new Scanner(System.in);

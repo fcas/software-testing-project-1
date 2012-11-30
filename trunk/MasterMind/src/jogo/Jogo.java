@@ -39,10 +39,17 @@ public class Jogo
 	{
 		return turno;
 	}
+	
+	/**Método desenvolvido pelos testadores para fins de testes nessa classe**/
+	public void setTurno(int novoTurno){
+		this.turno = novoTurno;
+	}
+	
 	public Adivinho getAdivinho()
 	{
 		return adivinho;
 	}
+	
 	public FornecedorDaSenha getFornecedor()
 	{
 		return fornecedor;
@@ -87,13 +94,10 @@ public class Jogo
 				try 
 				{
 					if(retorno.getPino(i).compareTo("preto") != 0)
-					{
 						return false;
-					}
 				} 
 				catch(PosicaoInvalidaException e) 
-				{
-				}
+				{}
 			}
 			return true;
 		}
@@ -110,6 +114,12 @@ public class Jogo
 	 * retorno
 	 * 3) Caso passem 10 turnos ou o adivinho ganhe o jogo, o jogo acaba.
 	   4) é mostrada ao jogador uma frase que indica se ele perdeu ou ganhou.	
+	 */
+	/*
+	 * Esse método é inviável de ser testado, pois ele usa todos os métodos de todas as classes do projeto.
+	 * Ao garantir que todos os outros métodos funcionam, testar esse método passa a ser uma redundância,
+	 * Além do fato de que esse método funciona interativamente com o usuário. Para usar esse método num teste,
+	 * teríamos que alterar boa parte da estrutura do código, para simular as interações pretendidas.
 	 */
 	public void executarJogo()
 	{
@@ -186,11 +196,11 @@ public class Jogo
 	{
 		if(turno >= 10)
 		{
-			System.out.println( "Você perdeu. Tente novamente mais tarde");
+			System.out.println("Você perdeu. Tente novamente mais tarde");
 		}
 		else
 		{
-			System.out.println( "Parabéns!Você venceu!!!!");
+			System.out.println("Parabéns!Você venceu!!!!");
 		}
 	}
 	
