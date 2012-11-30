@@ -68,8 +68,6 @@ public class FornecedorDaSenha implements Jogador
 			cores.add("laranja");
 			
 			//agora vamos retirar quatro cores randomicas dessa lista
-			
-			
 			for(int i = 0; i < 4; i++)
 			{
 				Random geradorNumRandomico = new Random();
